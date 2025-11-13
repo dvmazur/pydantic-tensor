@@ -99,7 +99,7 @@ class NumpyDelegate:
         dtype_delegate = ALIGNMENT_TO_DTYPE_DELEGATE[(align, itemsize)]
         num_bytes = base64_num_bytes(data)
         num_data_elements = num_bytes / itemsize
-        num_shape_elements = reduce(__mul__, shape)
+        num_shape_elements = reduce(__mul__, shape, 1)
         if num_shape_elements != num_data_elements:
             debug_info = {
                 "itemsize": itemsize,
